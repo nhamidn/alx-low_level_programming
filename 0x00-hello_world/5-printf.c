@@ -2,7 +2,7 @@
 
 /**
 * main - print a string with printf
-* return: 0 when succeed
+* Return: 0 when succeed
 */
 
 int main(void)
