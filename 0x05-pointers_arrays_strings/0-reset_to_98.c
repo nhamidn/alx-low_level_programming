@@ -5,7 +5,7 @@
  * @n: the pointer to reset it value
  * Return: Nothing (void function).
  */
-void reset_to_98(int *n);
+void reset_to_98(int *n)
 {
 	*n = 98;
 }
