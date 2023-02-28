@@ -34,11 +34,13 @@ int _atoi(char *s)
 		if (s[i] < 48 || 57 < s[i])
 			return (result);
 		result = (result * 10) + ((s[i] - '0') * neg);
-		//if ((result * 10) == 2147483640 && neg == -1)
-		//	result = ((result * 10) * neg)
-		//		- (s[i] - '0')
-		//else
-		//	result = (result * 10) + (s[i] - '0');
+		/**
+		 * if ((result * 10) == 2147483640 && neg == -1)
+		 *	result = ((result * 10) * neg)
+		 *		- (s[i] - '0')
+		 * else
+		 *	result = (result * 10) + (s[i] - '0');
+		 */
 		i++;
 	}
 	return (result);
