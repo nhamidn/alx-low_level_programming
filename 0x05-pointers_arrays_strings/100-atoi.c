@@ -15,8 +15,6 @@ int _atoi(char *s)
 	i = 0;
 	neg = 1;
 	result = 0;
-	if (s == "-2147483648")
-		return (-2147483648);
 	while (s[i] < 48 || 57 < s[i])
 		i++;
 	if (s[i] == '\0')
@@ -34,9 +32,14 @@ int _atoi(char *s)
 	while (s[i])
 	{
 		if (s[i] < 48 || 57 < s[i])
-			return (result * neg);
-		result = (result * 10) + (s[i] - '0');
+			return (result);
+		result = (result * 10) + ((s[i] - '0') * neg);
+		//if ((result * 10) == 2147483640 && neg == -1)
+		//	result = ((result * 10) * neg)
+		//		- (s[i] - '0')
+		//else
+		//	result = (result * 10) + (s[i] - '0');
 		i++;
 	}
-	return (result * neg);
+	return (result);
 }
