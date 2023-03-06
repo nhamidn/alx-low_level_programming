@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * _memset - fill a byte string with a byte value.
@@ -17,6 +17,5 @@ char *_memset(char *s, char b, unsigned int n)
 		tmp[i] = b;
 		i++;
 	}
-	return (s);
+	return (tmp);
 }
-
