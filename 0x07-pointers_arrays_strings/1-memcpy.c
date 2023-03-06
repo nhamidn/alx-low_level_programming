@@ -5,21 +5,19 @@
  * @dest: where to copy
  * @src: what to copy
  * @n: number of element to copy
+ *
  * Return: pointer to char (string).
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	char *s;
-	char *d;
-	int i;
+	char *b = src;
+	char *a = dest;
 
-	s = src;
-	d = dest;
-	i = 0;
-	while (i < n)
+	while (n != 0)
 	{
-		d[i] = s[i];
-		i++;
+		*a++ = *b++;
+		n--;
 	}
-	return (d);
+
+	return (dest);
 }
