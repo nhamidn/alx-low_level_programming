@@ -3,7 +3,7 @@
 /**
  * _memset - fill a byte string with a byte value.
  * @s: pointer to char (string)
- * @b: a constant byte 
+ * @b: a constant byte
  * @n: n bytes
  * Return: pointer to s
  */
