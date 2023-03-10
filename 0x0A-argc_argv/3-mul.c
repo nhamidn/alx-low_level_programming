@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 
 	if (argc == 3)
 	{
-		r = atoi(argv[1]) * atoi(argv[2])
+		r = atoi(argv[1]) * atoi(argv[2]);
 		printf("%d\n", r);
 	}
 	else
