@@ -1,6 +1,25 @@
 #include "main.h"
 
 /**
+ * _checker - check if a string
+ * contain a non digit character
+ * @str: string to check
+ * Return: 1 if it's digit itherwise 0
+ */
+int _checker(char *str)
+{
+	int i = 0;
+
+	while (str[i])
+	{
+		if (str[i] < 48 || str[i] > 57)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+/**
  * main - sum of positive numbers from args
  * @argc: number of arguments
  * @argv: array of arguments
@@ -14,16 +33,10 @@ int main(int argc, char **argv)
 	if (argc > 1)
 		while (i < argc)
 		{
-			int j = 0;
-
-			while (argv[i][j])
+			if (_checker(argv[i]) == 0)
 			{
-				if (argv[i][j] < 48 || argv[i][j] > 57)
-				{
-					printf("ERROR\n");
-					return (1);
-				}
-				j++;
+				printf("ERROR\n");
+				return (1);
 			}
 			sum += atoi(argv[i]);
 			i++;
