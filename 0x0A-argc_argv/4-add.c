@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 	int i = 1;
 
 	if (argc > 1)
+	{
 		while (i < argc)
 		{
 			if (_checker(argv[i]) == 0)
@@ -41,6 +42,7 @@ int main(int argc, char **argv)
 			sum += atoi(argv[i]);
 			i++;
 		}
+	}
 	printf("%d\n", sum);
 	return (0);
 }
