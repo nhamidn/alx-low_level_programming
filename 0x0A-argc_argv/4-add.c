@@ -1,22 +1,24 @@
 #include "main.h"
 
 /**
- * _checker - check if a string
- * contain a non digit character
- * @str: string to check
- * Return: 1 if it's digit otherwise 0
+ * _isdigit - detect if it's digit or not
+ * @c: character to scan
+ * Return: 0 if not digit otherwise 1
+ *
  */
-int _checker(char *str)
+int _isdigit(int c)
 {
-	int i = 0;
+	int resp;
 
-	while (str[i])
+	if (c > 47 && c < 58)
 	{
-		if (str[i] < 48 || str[i] > 57)
-			return (0);
-		i++;
+		resp = 1;
 	}
-	return (1);
+	else
+	{
+		resp = 0;
+	}
+	return (resp);
 }
 
 /**
@@ -27,7 +29,7 @@ int _checker(char *str)
  */
 int main(int argc, char *argv[])
 {
-	unsigned int sum = 0;
+	unsigned int r = 0;
 	int i = 1;
 
 	if (argc == 1)
@@ -37,14 +39,20 @@ int main(int argc, char *argv[])
 	}
 	while (i < argc)
 	{
-		if (_checker(argv[i]) == 0)
+		int j = 0;
+
+		while (argv[i][j])
 		{
-			printf("ERROR\n");
-			return (1);
+			if (_isdigit(argv[i][j]) == 0)
+			{
+				printf("Error\n");
+				return (1);
+			}
+			j++;
 		}
-		sum = sum + atoi(argv[i]);
+		r = r + atoi(argv[i]);
 		i++;
 	}
-	printf("%d\n", sum);
+	printf("%d\n", r);
 	return (0);
 }
