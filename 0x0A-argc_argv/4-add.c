@@ -6,32 +6,30 @@
  * @argv: array of arguments
  * Return: 0 on success 1 on error
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int r = 0;
+	int sum = 0;
 	int i = 1;
 
-	if (argc == 1)
+	if (argc > 1)
 	{
-		printf("0\n");
-		return (0);
-	}
-	while (i < argc)
-	{
-		int j = 0;
-
-		while (argv[i][j])
+		while (i < argc)
 		{
-			if (argv[i][j] < 48 || argv[i][j] > 57)
+			int j = 0;
+
+			while (argv[i][j])
 			{
-				printf("Error\n");
-				return (1);
+				if (argv[i][j] < 48 || argv[i][j] > 57)
+				{
+					printf("ERROR\n");
+					return (1);
+				}
+				j++;
 			}
-			j++;
+			sum += atoi(argv[i]);
+			i++;
 		}
-		r = r + atoi(argv[i]);
-		i++;
 	}
-	printf("%d\n", r);
+	printf("%d\n", sum);
 	return (0);
 }
