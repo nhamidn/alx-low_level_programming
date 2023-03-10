@@ -8,7 +8,7 @@
  */
 int main(int argc, char **argv)
 {
-	int sum = 0;
+	int r = 0;
 	int i = 1;
 
 	if (argc > 1)
@@ -26,10 +26,10 @@ int main(int argc, char **argv)
 				}
 				j++;
 			}
-			sum += atoi(argv[i]);
+			r = r + atoi(argv[i]);
 			i++;
 		}
 	}
-	printf("%d\n", sum);
+	printf("%d\n", r);
 	return (0);
 }
