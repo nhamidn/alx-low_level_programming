@@ -27,7 +27,7 @@ int _checker(char *str)
  */
 int main(int argc, char **argv)
 {
-	int sum = 0;
+	unsigned int sum = 0;
 	int i = 1;
 
 	if (argc > 1)
