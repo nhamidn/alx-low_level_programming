@@ -1,4 +1,4 @@
-#include <main.h>
+#include "main.h"
 
 /**
  * create_array - create a array with dynamic size
