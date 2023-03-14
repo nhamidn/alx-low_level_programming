@@ -75,10 +75,8 @@ int charcount(char const *str, int i)
 	int count;
 
 	count = 0;
-	while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+	while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i] != '\0')
 	{
-		if (str[i] == '\0')
-			break;
 		count++;
 		i++;
 	}
