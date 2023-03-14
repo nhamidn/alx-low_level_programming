@@ -28,7 +28,7 @@ char **strtow(char *str)
 		len2 = 0;
 		while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
 			i++;
-		len2 = i - j;
+		len2 = i - j - 1;
 		if (len2)
 		{
 			dest[len1] = (char *)malloc(sizeof(char) * (len2 + 1));
