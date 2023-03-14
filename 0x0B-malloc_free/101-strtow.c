@@ -13,8 +13,8 @@ char **strtow(char *str)
 	if (str == NULL)
 		return (NULL);
 	while (str[++i] != '\0')
-		if (str[i] != ' ')
-			if (i == 0 || str[i - 1] == ' ')
+		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+			if (i == 0 || str[i - 1] == ' ' || str[i - 1] == '\t' || str[i - 1] == '\n')
 				len1++;
 	if (i == 1 || str == NULL || len1 == 0)
 		return (NULL);
@@ -28,7 +28,7 @@ char **strtow(char *str)
 		len2 = 0;
 		while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
 			i++;
-		len2 = i - j - 1;
+		len2 = i - j;
 		if (len2)
 		{
 			dest[len1] = (char *)malloc(sizeof(char) * (len2 + 1));
