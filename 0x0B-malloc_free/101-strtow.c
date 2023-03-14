@@ -18,10 +18,10 @@ char **strtow(char *str)
 				len1++;
 	if (i == 1 || str == NULL || len1 == 0)
 		return (NULL);
-	dest = (char **)malloc(sizeof(char *) * (len1 + 1));
+	dest = (char **)malloc(sizeof(char *) * (len1));
 	if (dest == NULL)
 		return (NULL);
-	dest[len1] = NULL;
+	dest[len1 - 1] = NULL;
 	i = j = len1 = 0;
 	while (str[i] != '\0')
 	{
