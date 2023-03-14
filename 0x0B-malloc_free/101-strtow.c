@@ -106,7 +106,7 @@ char **strtow(char *str)
 		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
 		{
 			k = 0;
-			st[j] = malloc(sizeof(char) * charcount(str, i));
+			st[j] = malloc(sizeof(char) * (charcount(str, i) + 1));
 			if (st[j] == NULL)
 				return (NULL);
 			while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i] != '\0')
