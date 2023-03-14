@@ -8,15 +8,15 @@
 char **strtow(char *str)
 {
 	char **dest = NULL;
-	int i = 0, j = 0, len1 = 0, len2;
+	int i = -1, j = 0, len1 = 0, len2;
 
 	if (str == NULL)
 		return (NULL);
-	while (str[i++] != '\0')
+	while (str[++i] != '\0')
 		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
 			if (i == 0 || str[i - 1] == ' ' || str[i - 1] == '\t' || str[i - 1] == '\n')
 				len1++;
-	if (i == 0 || str == NULL || len1 == 0)
+	if (i == 1 || str == NULL || len1 == 0)
 		return (NULL);
 	dest = (char **)malloc(sizeof(char *) * (len1 + 1));
 	if (dest == NULL)
@@ -40,7 +40,8 @@ char **strtow(char *str)
 				dest[len1][i - j] = str[i];
 				i++;
 			}
-			dest[len1++][len2] = '\0';
+			dest[len1][len2] = '\0';
+			len1++;
 		}
 		i++;
 		j = i;
