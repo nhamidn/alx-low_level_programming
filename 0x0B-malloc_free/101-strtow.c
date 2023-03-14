@@ -96,7 +96,7 @@ char **strtow(char *str)
 	wlen = w(str);
 	if (str == NULL || wlen == 0)
 		return (NULL);
-	st = (char **)malloc(sizeof(char *) * (wlen + 1));
+	st = (char **)malloc(sizeof(char *) * (wlen + 2));
 	if (st == NULL)
 		return (NULL);
 	while (str[i])
