@@ -96,7 +96,7 @@ char **strtow(char *str)
 	wlen = w(str);
 	if (str == NULL || wlen == 0)
 		return (NULL);
-	st = (char **)malloc(sizeof(char *) * (wlen + 2));
+	st = (char **)malloc(sizeof(char *) * (wlen + 1));
 	if (st == NULL)
 		return (NULL);
 	while (str[i])
@@ -104,7 +104,10 @@ char **strtow(char *str)
 		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
 		{
 			k = 0;
-			st[j] = malloc(sizeof(char) * (charcount(str, i) + 2));
+			if (j == 0)
+				st[j] = malloc(sizeof(char) * (charcount(str, i) + 3));
+			else
+				st[j] = malloc(sizeof(char) * (charcount(str, i) + 2));
 			if (st[j] == NULL)
 				return (NULL);
 			while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i] != '\0')
