@@ -7,42 +7,44 @@
  */
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, j, flag = 0;
+	unsigned int counter = 0, j, i = 0;
 	char *p;
-	const char argtypes[] = "cifs";
+	const char arguments[] = "cifs";
 	va_list myList;
 
 	va_start(myList, format);
-	while (format && format[i])
+	while (format && format[counter])
 	{
 		j = 0;
-		while (argtypes[j])
+		while (arguments[j])
 		{
-			if (format[i] == argtypes[j])
+			if (format[counter] == arguments[j] && i)
 			{
-				if (flag)
-					printf(", ");
-				flag = 1;
+				printf(", ");
 				break;
-			}
-			j++;
+			} j++;
 		}
-		if (format[i] == 'c')
-			printf("%c", va_arg(myList, int));
-		else if (format[i] == 'i')
-			printf("%d", va_arg(myList, int));
-		else if (format[i] == 'f')
-			printf("%f", va_arg(myList, double));
-		else if (format[i] == 's')
+		switch (format[counter])
 		{
-			p = va_arg(myList, char *);
-			if (!p)
-				printf("(nil)");
-			else
+			case 'c':
+				printf("%c", va_arg(myList, int)), i = 1;
+				break;
+			case 'i':
+				printf("%d", va_arg(myList, int)), i = 1;
+				break;
+			case 'f':
+				printf("%f", va_arg(myList, double)), i = 1;
+				break;
+			case 's':
+				p = va_arg(myList, char *), i = 1;
+				if (!p)
+				{
+					printf("(nil)");
+					break;
+				}
 				printf("%s", p);
-		}
-		i++;
+				break;
+		} counter++;
 	}
-	printf("\n");
-	va_end(myList);
+	printf("\n"), va_end(myList);
 }
