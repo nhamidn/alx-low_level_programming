@@ -14,7 +14,7 @@ int sum_them_all(const unsigned int n, ...)
 
 	while (i < n)
 	{
-		addition += va_arg(vaList, int);
+		sum += va_arg(vaList, int);
 		i++;
 	}
 
