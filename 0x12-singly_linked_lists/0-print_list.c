@@ -3,6 +3,7 @@
 /**
  * print_list - prints all the elements of a list_t list.
  * @h: List.
+ * Description: prints all the elements of a list_t list
  * Return: the number of nodes.
  */
 size_t print_list(const list_t *h)
