@@ -2,7 +2,8 @@
 /**
  * pop_listint - deleted head node
  * @head: head node
- * Return: head node data
+ * Return: value of the head node
+ * else 0
  */
 int pop_listint(listint_t **head)
 {
